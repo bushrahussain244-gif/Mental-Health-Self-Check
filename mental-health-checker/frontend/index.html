@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Checker</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Mental Health Checker</h1>
+            <p>Take a moment to check in with yourself</p>
+        </div>
+
+        <div class="hero-banner">
+            <div class="hero-content">
+                <h2>Welcome to your gentle mental wellness space</h2>
+                <p>Answer a few simple questions and receive a caring progress report, affirmations, and mini therapist
+                    support. 🌸✨</p>
+            </div>
+        </div>
+
+        <!-- Introduction Section -->
+        <div id="introSection" class="section">
+            <div class="card">
+                <h2>Welcome!</h2>
+                <p>This tool helps you understand your current mental state through simple questions.</p>
+                <p><strong>Important:</strong> This is not a medical diagnosis. If you need professional help, please
+                    reach out to a healthcare provider.</p>
+                <div class="form-group">
+                    <label for="nameInput">Please enter your name:</label>
+                    <input type="text" id="nameInput" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="genderSelect">What is your gender?</label>
+                    <select id="genderSelect" required>
+                        <option value="">Select gender</option>
+                        <option value="girl">Girl</option>
+                        <option value="boy">Boy</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" onclick="startQuestions()">Start Assessment</button>
+            </div>
+        </div>
+
+        <!-- Questions Section -->
+        <div id="questionsSection" class="section hidden">
+            <div class="progress-bar">
+                <div id="progressFill" class="progress-fill"></div>
+            </div>
+            <p id="progressText" class="progress-text">Question 1 of 7</p>
+
+            <div class="card">
+                <h3 id="questionText"></h3>
+                <div class="question-options">
+                    <button class="btn btn-option" onclick="answerQuestion(true)">Yes</button>
+                    <button class="btn btn-option" onclick="answerQuestion(false)">No</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="resultsSection" class="section hidden">
+            <div class="card results-card">
+                <h2>Your Results, <span id="resultName"></span> 👋</h2>
+                <div class="score-container">
+                    <p class="score-text">Your Score: <span id="scoreValue"></span>/7</p>
+                    <div class="score-bar">
+                        <div id="scoreBarFill" class="score-bar-fill"></div>
+                    </div>
+                </div>
+
+                <div id="resultMessage" class="result-message"></div>
+                <div id="progressReport" class="progress-report">🌸✨ Previous record not loaded yet ✨🌸</div>
+
+                <div class="affirmations-section">
+                    <h3>✨ Affirmations for You ✨</h3>
+                    <div id="affirmationsList" class="affirmations-list"></div>
+                </div>
+
+                <div class="result-tips">
+                    <h4>💡 Tips for Better Mental Health:</h4>
+                    <ul id="tipsList"></ul>
+                </div>
+
+                <div id="loveSupportSection" class="love-support-section" style="display: none;">
+                    <h4>💔 Love & Relationship Support</h4>
+                    <div id="loveSupportMessage" class="love-support-message"></div>
+                </div>
+
+                <div class="recommendations-section">
+                    <h4>📺 Recommended Channels & Podcasts</h4>
+                    <div id="recommendationsList" class="recommendations-list"></div>
+                </div>
+
+                <div class="general-message">
+                    <p><strong>General recommendation:</strong> Take care of your well-being because no one else is
+                        going to do so. Consider exploring motivational content that resonates with you.</p>
+                    <p><em>Remember, this is not a medical diagnosis.</em></p>
+                </div>
+
+                <div class="therapist-section">
+                    <button class="btn btn-primary" onclick="promptMiniTherapist()">Talk to Mini Therapist</button>
+                    <div id="therapistResponse" class="therapist-response">🌸✨ Ready when you are ✨🌸</div>
+                </div>
+
+                <button class="btn btn-primary" onclick="restartAssessment()">Take Assessment Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
